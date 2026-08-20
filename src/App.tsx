@@ -1,3 +1,4 @@
+import Ionicons from '@expo/vector-icons/Ionicons';
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, StatusBar as NativeStatusBar, StyleSheet, useWindowDimensions, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
@@ -57,6 +58,22 @@ function AppShell() {
 }
 
 export default function App() {
+  const [iconsLoaded, setIconsLoaded] = useState(false);
+
+  useEffect(() => {
+    let active = true;
+    Ionicons.loadFont().finally(() => {
+      if (active) setIconsLoaded(true);
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  if (!iconsLoaded) {
+    return <View style={styles.fontLoading} />;
+  }
+
   return (
     <DiaryProvider>
       <AppShell />
@@ -69,4 +86,5 @@ const styles = StyleSheet.create({
   app: { flex: 1, width: '100%', maxWidth: 900, backgroundColor: colors.background },
   desktopFrame: { marginVertical: 18, borderRadius: 24, overflow: 'hidden' },
   content: { flex: 1, minHeight: 0 },
+  fontLoading: { flex: 1, backgroundColor: colors.background },
 });
