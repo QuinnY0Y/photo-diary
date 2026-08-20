@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "时光拍立得",
+    "slug": "photo-diary",
+    "version": "1.0.0",
+    "orientation": "default",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "scheme": "photodiary",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.local.photodiary",
+      "infoPlist": {
+        "NSCameraUsageDescription": "用于拍摄你的小时照片日记。",
+        "NSPhotoLibraryUsageDescription": "用于选择照片补录到日记。",
+        "NSLocationWhenInUseUsageDescription": "用于在你允许时为照片记录位置。"
+      }
+    },
+    "android": {
+      "package": "com.local.photodiary",
+      "permissions": [
+        "CAMERA",
+        "READ_MEDIA_IMAGES",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "POST_NOTIFICATIONS"
+      ],
+      "adaptiveIcon": {
+        "backgroundColor": "#F7F3ED"
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "name": "时光拍立得",
+      "output": "single"
+    },
+    "experiments": {
+      "baseUrl": "/photo-diary"
+    },
+    "plugins": [
+      "expo-camera",
+      "expo-image-picker",
+      "expo-location",
+      "expo-notifications",
+      "expo-sqlite",
+      "expo-secure-store",
+      "expo-document-picker",
+      "expo-sharing",
+      "expo-status-bar"
+    ]
+  }
+}
