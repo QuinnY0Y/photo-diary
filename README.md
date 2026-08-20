@@ -494,6 +494,7 @@ The Web build is suitable for reviewing the interface and main information flow.
 **[在线体验 · Open the Live Demo](https://quinny0y.github.io/photo-diary/?demo=1)**
 
 ---
+## 制作声明 / Production Note
 
 > *🤖All AI-generated, except for product vision and content iteration by QuinnY.*
 > *除产品创意和内容调试，全部由 AI 生成。*
