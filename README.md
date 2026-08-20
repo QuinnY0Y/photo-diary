@@ -6,7 +6,7 @@
 [![React Native](https://img.shields.io/badge/React_Native-0.86-61DAFB?logo=react)](https://reactnative.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?logo=typescript)](https://www.typescriptlang.org/)
 
-**[打开 Web 体验版](https://rdchengcheng.github.io/photo-diary/?demo=1)**
+**[打开 Web 体验版](https://quinny0y.github.io/photo-diary/?demo=1)**
 
 Web 用于快速体验界面和核心流程；相机、系统通知、定位、SQLite 与原生文件能力以 iOS / Android development build 为准。
 
