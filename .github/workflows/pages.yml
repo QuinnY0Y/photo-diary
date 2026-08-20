@@ -29,6 +29,20 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm check
       - run: pnpm export:web
+      - name: Publish icon font outside pnpm's hidden directory
+        shell: bash
+        run: |
+          icon_font="$(find dist/assets -type f -name 'Ionicons*.ttf' -print -quit)"
+          test -n "$icon_font"
+          mkdir -p dist/assets/fonts
+          public_font="dist/assets/fonts/$(basename "$icon_font")"
+          cp "$icon_font" "$public_font"
+          old_path="/photo-diary/${icon_font#dist/}"
+          new_path="/photo-diary/${public_font#dist/}"
+          while IFS= read -r bundle; do
+            sed -i "s|${old_path}|${new_path}|g" "$bundle"
+          done < <(find dist/_expo -type f -name '*.js')
+          grep -R -F "$new_path" dist/_expo
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
@@ -44,4 +58,3 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
-
