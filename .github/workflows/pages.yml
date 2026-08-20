@@ -43,6 +43,8 @@ jobs:
             sed -i "s|${old_path}|${new_path}|g" "$bundle"
           done < <(find dist/_expo -type f -name '*.js')
           grep -R -F "$new_path" dist/_expo
+          sed -i "s|\.js\"|.js?v=${GITHUB_SHA}\"|" dist/index.html
+          grep -F "?v=${GITHUB_SHA}" dist/index.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
